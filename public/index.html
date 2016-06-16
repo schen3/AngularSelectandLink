@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+	</head>
+	<body ng-app="main" ng-controller="mainCtrl">
+		<h1>Hello world</h1>
+		<label>
+			<select ng-model="myOption" ng-options="o.name for o in opp">
+				<option value="">-- choose color--</option>
+			</select>
+		</label>
+		<div ng-repeat="oo in opp | limitTo:messageNum">
+			<span>The color your chose: {{oo.name}}</span>
+			<span>The mood you have: {{oo.side}}</span>
+
+		</div>
+		<div>{{myOption.side}}</div>
+		<div style="border:1px solid grey; height:20px;" 
+		ng-style="{'background-color':myOption.name}">
+		</div>
+
+	<button ng-if="more" ng-click="showMore()" >Show All</button>
+	<button ng-if="less" ng-click="showLess()">Show less</button>
+	<hr>
+	<input ng-model="format">{{format}} <br>
+	<span my-directive="format"></span>
+	
+
+
+
+	<script type="text/javascript" src="app.js"></script>
+	</body>
+
+</html>
